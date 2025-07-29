@@ -45,6 +45,9 @@
 \fancyfoot[c]{\thepage}
 \newcommand{\lheader}[1]{\fancyhead[L]{\raisebox{-0.1\height}{\includegraphics[width=4cm]{#1}}}}
 \newcommand{\rheader}[1]{\fancyhead[R]{#1}}
+\makeatletter
+\newcommand*{\currentname}{\@currentlabelname}
+\makeatother
 
 % Automatically generate a box around figure environments
 % \floatstyle{boxed}
