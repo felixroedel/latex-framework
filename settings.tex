@@ -216,7 +216,12 @@
     \input{sections/abstract.tex}
   }{}
 }
-
+\newcommand{\printPreamble}{
+  \IfFileExists{./sections/abstract.tex}{
+    \newpage
+    \input{sections/preamble.tex}
+  }{}
+}
 \newcommand{\printTableOfContents}{
   \newpage
   \setcounter{page}{2}
@@ -310,6 +315,7 @@
 
 \newcommand{\startDocument}{
   \printAbstract
+  \printPreamble
   \printTableOfContents
   \printListOfFigures
   \printListOfTables
