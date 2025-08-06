@@ -213,7 +213,7 @@
 \newcommand{\printAbstract}{
   \IfFileExists{./sections/abstract.tex}{
     \newpage
-    \include{sections/abstract.tex}
+    \input{sections/abstract.tex}
   }{}
 }
 
@@ -281,7 +281,7 @@
     \newpage
     \appendix
     \renewcommand{\thesection}{A\arabic{section}}
-    \include{sections/appendix.tex}
+    \input{sections/appendix.tex}
   }{}
 }
 \newcommand{\printDeclarationOfHonor}{
@@ -289,7 +289,7 @@
   \phantomsection
   \addcontentsline{toc}{section}{Ehrenwörtliche Erklärung}
   \lhead{Ehrenwörtliche Erklärung}
-  \include{registers/declaration_of_honor}
+  \input{registers/declaration_of_honor}
 }
 \newcommand{\printTodos}{
   \iftotalcounttodos
