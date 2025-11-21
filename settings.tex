@@ -211,16 +211,28 @@
 % -------------------------------------------------------------------
 %                        Custom Commands
 % -------------------------------------------------------------------
-\newcommand{\printAbstract}{
-  \IfFileExists{./sections/abstract.tex}{
+\newcommand{\printAbstractEnglish}{
+  \IfFileExists{./sections/abstract_english.tex}{
     \newpage
-    \input{sections/abstract.tex}
+    \input{sections/abstract_english.tex}
+  }{}
+}
+\newcommand{\printAbstractGerman}{
+  \IfFileExists{./sections/abstract_german.tex}{
+    \newpage
+    \input{sections/abstract_german.tex}
   }{}
 }
 \newcommand{\printPreamble}{
-  \IfFileExists{./sections/abstract.tex}{
+  \IfFileExists{./sections/preamble.tex}{
     \newpage
     \input{sections/preamble.tex}
+  }{}
+}
+\newcommand{\printBlockingNote}{
+  \IfFileExists{./sections/blocking_note.tex}{
+    \newpage
+    \input{sections/blocking_note.tex}
   }{}
 }
 \newcommand{\printTableOfContents}{
@@ -315,8 +327,10 @@
 % declaration of honor
 
 \newcommand{\startDocument}{
-  \printAbstract
+  \printAbstractGerman
+  \printAbstractEnglish  
   \printPreamble
+  \printBlockingNote
   \printTableOfContents
   \printListOfFigures
   \printListOfTables
