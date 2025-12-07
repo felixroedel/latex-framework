@@ -1,6 +1,9 @@
 % Set default graphics path
 \graphicspath{{img/}}
 
+% Don't display "a as ä etc.
+\shorthandoff{"}
+
 %% Disable single lines at the start of a paragraph (Schusterjungen)
 \clubpenalty=10000
 
@@ -40,10 +43,7 @@
 
 % Create a better looking header and footer
 \pagestyle{fancy}
-\fancyhf{}
-\newcommand{\defaultHeaderRight}{\rhead{\nouppercase{\leftmark}}}
-\defaultHeaderRight
-\fancyfoot[c]{\thepage}
+\newcommand{\defaultHeaderRight}{\lhead{\nouppercase{\leftmark}}}
 \newcommand{\customHeaderLeft}[1]{\fancyhead[L]{\raisebox{-0.1\height}{\includegraphics[width=4cm]{#1}}}}
 \newcommand{\customHeaderRight}[1]{\fancyhead[R]{#1}}
 \makeatletter
@@ -214,24 +214,40 @@
 \newcommand{\printAbstractEnglish}{
   \IfFileExists{./sections/abstract_english.tex}{
     \newpage
+    \fancypagestyle{abstract}{
+      \fancyhead[L]{Abstract}
+    }
+    \thispagestyle{abstract}
     \input{sections/abstract_english.tex}
   }{}
 }
 \newcommand{\printAbstractGerman}{
   \IfFileExists{./sections/abstract_german.tex}{
     \newpage
+    \fancypagestyle{abstractGerman}{
+      \fancyhead[L]{Zusammenfassung}
+    }
+    \thispagestyle{abstractGerman}
     \input{sections/abstract_german.tex}
   }{}
 }
 \newcommand{\printPreamble}{
   \IfFileExists{./sections/preamble.tex}{
     \newpage
+    \fancypagestyle{preamble}{
+      \fancyhead[L]{Vorwort}
+    }
+    \thispagestyle{preamble}
     \input{sections/preamble.tex}
   }{}
 }
 \newcommand{\printBlockingNote}{
   \IfFileExists{./sections/blocking_note.tex}{
     \newpage
+    \fancypagestyle{blockingNote}{
+      \fancyhead[L]{Sperrvermerk}
+    }
+    \thispagestyle{blockingNote}
     \input{sections/blocking_note.tex}
   }{}
 }
@@ -327,6 +343,8 @@
 % declaration of honor
 
 \newcommand{\startDocument}{
+  \fancyhf{}
+  \defaultHeaderRight
   \printAbstractGerman
   \printAbstractEnglish  
   \printPreamble
@@ -338,6 +356,7 @@
   \printListOfNomenclature
   \printListOfAcronyms
   \newpage
+  \rfoot{\thepage}
 }
 
 \newcommand{\finishDocument}{
