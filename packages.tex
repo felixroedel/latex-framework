@@ -63,6 +63,14 @@
   translate=babel
 ]{glossaries}
 
+% Bibliography inputs
+\usepackage[
+  backend=biber,
+  style=ieee,
+  sorting=none,
+  block=space,
+  dashed=false
+]{biblatex}
 
 % Track the total count of different environments
 % Needs to be imported because LaTeX resets these counter on a chapter basis
@@ -90,6 +98,3 @@
 
 % Annotate images with standard tikz macros
 \usepackage{tikz-imagelabels}
-
-% IEEE citing
-\usepackage[numbers]{natbib}
