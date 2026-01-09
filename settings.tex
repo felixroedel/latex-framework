@@ -155,7 +155,7 @@
 %   - provide shorter aliases for commonly used macros
 \newcounter{countacronym}
 \DeclareTotalCounter{countacronym}
-\pretocmd{\gls}{\stepcounter{countacronym}}{}{}
+\pretocmd{\gls}{\stepcounter{countacronym}}{}{} % needed for \gls usage of acronyms
 \pretocmd{\acrshort}{\stepcounter{countacronym}}{}{}
 \pretocmd{\acrlong}{\stepcounter{countacronym}}{}{}
 \pretocmd{\acrfull}{\stepcounter{countacronym}}{}{}
