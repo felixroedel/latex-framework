@@ -172,10 +172,16 @@
 \newcommand{\nomsi}[1]{\nomunit{[\si{#1}]}}
 
 \renewcommand\nomgroup[1]{%
-  \ifstrequal{#1}{A}{\nopagebreak
+  \ifstrequal{#1}{A}{
+    \nopagebreak
     \item[\textbf{Symbol}] \textbf{Bedeutung} \hfill \textbf{Einheit}}{%
-  \ifstrequal{#1}{B}{\nopagebreak
-    \item[\textbf{Indizes}] \textbf{Bedeutung}}{}}%
+      \ifstrequal{#1}{B}{
+        \nopagebreak
+        \item[\textbf{Indizes}] \textbf{Bedeutung}}{%
+          \ifstrequal{#1}{C}{\nopagebreak
+          \item[\textbf{Notation}] \textbf{Bedeutung}}{}
+      }%
+  }%
 }
 
 % Custom glossary patches:
@@ -383,6 +389,9 @@
 % -------------------------------------------------------------------
 
 \newcommand{\diff}{\mathrm{d}}
+\newcommand{\diffop}[1]{\frac{\diff}{\diff #1}}
+\newcommand{\deriv}[2]{\frac{\diff #1}{\diff #2}}
+\newcommand{\nderiv}[3]{\frac{\diff^{#3} #1}{\diff #2^{#3}}}
 
 % -------------------------------------------------------------------
 %                    Configure Tikz library
