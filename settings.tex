@@ -167,9 +167,16 @@
 %   - provide cleaner writing interface with pre-made abstractions
 \newcounter{countnomen}
 \DeclareTotalCounter{countnomen}
-\newcommand*{\nomen}[2]{\nomenclature{#1}{#2}\stepcounter{countnomen}}
+\newcommand*{\nomen}[3]{\nomenclature[#1]{#2}{#3}\stepcounter{countnomen}}
 \newcommand{\nomunit}[1]{\renewcommand{\nomentryend}{\hspace*{\fill}#1}}
 \newcommand{\nomsi}[1]{\nomunit{[\si{#1}]}}
+
+\renewcommand\nomgroup[1]{%
+  \ifstrequal{#1}{A}{\nopagebreak
+    \item[\textbf{Symbol}] \textbf{Bedeutung} \hfill \textbf{Einheit}}{%
+  \ifstrequal{#1}{B}{\nopagebreak
+    \item[\textbf{Indizes}] \textbf{Bedeutung}}{}}%
+}
 
 % Custom glossary patches:
 %   - count usage (used for on-demand glossary)
