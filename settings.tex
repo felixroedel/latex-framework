@@ -327,7 +327,7 @@
   \IfFileExists{./sections/appendix.tex}{
     \newpage
     \appendix
-    \renewcommand{\thesection}{A\arabic{section}}
+    \captionsetup[figure]{list=no}
     \input{sections/appendix.tex}
   }{}
 }
